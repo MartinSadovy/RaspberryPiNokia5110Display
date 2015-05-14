@@ -37,15 +37,20 @@ int main()
 	display.clear();
 	
 	int x = 0;
-	
+	int y = 50;
+
 	while(true)
 	{
 		cout << x << endl;
-		display.showProgress(1, x);
-		delay(100);
+		display.showProgress(0, x);
+		display.showProgress(1, y);
+		delay(10);
 		
 		x++;
-		if(x > 100) x = 0;
+		if(x > 100) { display.printBuffer(); return 0; x = 0;}
+
+		y++;
+		if(y > 100) y = 0;
 	}
 	
 	return 0;
